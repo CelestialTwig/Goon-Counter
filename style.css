@@ -1,0 +1,78 @@
+.gButton {
+    background-image: url(goonjack.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 2px solid black;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    height: 400px;
+    width: 400px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    flex-direction: column;
+}
+
+.goonButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    line-height: 1;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin: 0%;
+    background-image: url(GOONER\ GIRL.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+html {
+    height: 100%;
+}
+
+.gButton:hover {
+    transform: scale(1.05);
+}
+
+.gButton:active {
+    transform: scale(0.95);
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.gButton a {
+    color: purple;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 1000;
+}
+
+.counter {
+    display: flex;
+    height: 200px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.counter label {
+    color: black;
+    height: 50%;
+    font-size: 60px;
+    font-weight: 900;
+}
