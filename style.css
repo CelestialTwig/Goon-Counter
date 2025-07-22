@@ -68,6 +68,7 @@ html {
     width: 100%;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .counter label {
@@ -75,4 +76,13 @@ html {
     height: 50%;
     font-size: 60px;
     font-weight: 900;
+    margin-top: 20px;
+}
+
+#label-text {
+    color: gray;
+    height: 50%;
+    font-size: 60px;
+    font-weight: 900;
+    margin: 0;
 }
