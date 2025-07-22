@@ -86,3 +86,95 @@ html {
     font-weight: 900;
     margin: 0;
 }
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: azure;
+    list-style: none;
+    height: 100%;
+    width: 75px;
+    z-index: 1;
+    background: #333;
+    overflow-x: hidden;
+    padding-top: 10px;
+    transition: 0.6s ease;
+    box-shadow: 0 0 10px;
+}
+
+.sidebar:hover {
+    width: 400px;
+    transition: 0.6s ease;
+}
+
+.sidebar ul {
+    list-style: none;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 50% 50%;
+}
+
+.sidebar h3 {
+    display: flex;
+    justify-self: center;
+}
+
+.badge-icon {
+    height: auto;
+    width: 100px;
+    display: block;
+    margin: 5px auto 0;
+}
+
+.master-baiter-badge {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.custom-alert {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.alert-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px;
+}
+
+.alert-content h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.alert-content p{
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.alert-content button{
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.alert-content button:hover{
+    background-color:#218838;
+
+}
