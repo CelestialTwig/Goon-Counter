@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const badgesSideBar = document.querySelector(".sidebar ul");
     const customAlert = document.querySelector('.custom-alert');
     const confirmBtn = document.getElementById('confirmation')
+    const sidebarButton = document.querySelector('.sidebarButton');
 
 
     incrementButton.addEventListener("click", () => {
@@ -26,6 +27,15 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem('master-baiter-badge', "true");
         }
 
+    });
+
+    sidebarButton.addEventListener('click', () => {
+        const sidebar = document.querySelector('.sidebar');
+        if (sidebar.style.width === '0px' || sidebar.style.width === '') {
+            sidebar.style.width = '20vw';
+        } else {
+            sidebar.style.width = '0px';
+        }
     });
 
     if (!localStorage.getItem('score')){
