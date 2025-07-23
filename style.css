@@ -27,6 +27,7 @@
     height: 100%;
     width: 100%;
     line-height: 1;
+    margin-top: 200px;
 }
 
 body {
@@ -202,4 +203,18 @@ html {
 .alert-content button:hover{
     background-color:#218838;
 
+}
+
+
+.sButton {
+    border-radius: 8px;
+}
+
+.sButton:hover{
+    background-color: #666;
+    transition: 0.2s ease;
+}
+
+.sButton:active{
+    background-color: white;
 }
