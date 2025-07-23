@@ -62,6 +62,25 @@ html {
     font-weight: 1000;
 }
 
+.sidebarButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    line-height: 1;
+}
+
+.sButton {
+    color: purple;
+    display: flex;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-weight: 1000;
+}
+
+
 .counter {
     display: flex;
     height: 200px;
@@ -94,17 +113,18 @@ html {
     color: azure;
     list-style: none;
     height: 100%;
-    width: 75px;
+    width: 0;
     z-index: 1;
     background: #333;
     overflow-x: hidden;
     padding-top: 10px;
     transition: 0.6s ease;
     box-shadow: 0 0 10px;
+    font-family: Arial, sans-serif;
 }
 
 .sidebar:hover {
-    width: 400px;
+    width: 20vw;
     transition: 0.6s ease;
 }
 
@@ -113,6 +133,7 @@ html {
     display: grid;
     gap: 20px;
     grid-template-columns: 50% 50%;
+    font-family: Arial, sans-serif;
 }
 
 .sidebar h3 {
@@ -130,6 +151,10 @@ html {
 .master-baiter-badge {
     text-align: center;
     margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid black;
 }
 
 .custom-alert {
