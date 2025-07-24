@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let newBadge = document.createElement('li');
             newBadge.classList.add("master-baiter-badge")
             newBadge.textContent = "MASTER BAITER";
+            newBadge.setAttribute("data-tooltip", "Obtainment Method: Goon 100 times.");
             badgesSideBar.appendChild(newBadge);
             let badgeLi = document.querySelector(".master-baiter-badge");
             let img = document.createElement("img");
@@ -52,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let newBadge = document.createElement('li');
             newBadge.classList.add("master-baiter-badge")
             newBadge.textContent = "MASTER BAITER";
+            newBadge.setAttribute("data-tooltip", "Obtainment Method: Goon 100 times.")
             badgesSideBar.appendChild(newBadge);
             let badgeLi = document.querySelector(".master-baiter-badge");
             let img = document.createElement("img");
@@ -59,7 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
             img.alt = "Master-Baiter-Badge";
             img.classList.add("badge-icon");
             badgeLi.appendChild(img);
-    }   
+    }
+    
+
+
 
 
 
