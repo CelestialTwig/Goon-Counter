@@ -89,6 +89,7 @@ html {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    color:white;
 }
 
 .counter label {
@@ -99,12 +100,14 @@ html {
     margin-top: 20px;
 }
 
-#label-text {
-    color: gray;
-    height: 50%;
+.times .label-text {
+    height: auto;
     font-size: 60px;
     font-weight: 900;
     margin: 0;
+    background: linear-gradient(to right, rgb(72, 137, 250), rgb(0, 217, 217));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .sidebar {
@@ -242,4 +245,31 @@ html {
 .sButton:active{
     background-color: white;
 }
+
+.counter .goonPoints {
+    background: linear-gradient(to right, red, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 5vh;
+}
+
+.times {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: auto;
+}
+
+.times .actualCounter {
+    height: auto;
+    font-size: 60px;
+    font-weight: 900;
+    margin: 0;
+    background: linear-gradient(to right, rgb(197, 145, 154), rgb(186, 37, 186));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
 
