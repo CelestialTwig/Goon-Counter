@@ -17,6 +17,7 @@
     font-size: 40px;
     transition: transform 0.1s ease, box-shadow 0.1s ease;
     flex-direction: column;
+    margin-bottom: 30px;
 }
 
 .goonButton {
