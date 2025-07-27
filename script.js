@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const sidebarButton = document.querySelector('.sidebarButton');
     const goonPoints = document.querySelector(".goonPoints");
     let score = parseInt(localStorage.getItem("score")) || 0;
+    const shopButton = document.querySelector(".shButton");
+    const cirnoShop = document.querySelector(".cirnoShop");
+    const cirnoSpin = document.querySelector(".cirnoSpin");
+    const fundAlert = document.querySelector(".noFunds");
+    const fundConfirm = document.getElementById("fund-confirmation");
 
 
     if (!localStorage.getItem('gPoints')) {
@@ -83,7 +88,41 @@ document.addEventListener("DOMContentLoaded", () => {
     goonPoints.textContent = "Gooning Points: " + localStorage.getItem("gPoints");
 
 
+    shopButton.addEventListener('click', () => {
+        const shop = document.querySelector('.shopbar');
+        if (shop.style.width === '0px' || shop.style.width === '') {
+            shop.style.width = '20vw';
+        } else {
+            shop.style.width = '0px';
+        }
+    });
 
+
+    
+
+    cirnoShop.addEventListener("click", () => {
+        let points = parseInt(goonPoints.textContent.replace(/\D/g, ""));
+        if (points >= 10) {
+            points -= 10;
+            cirnoSpin.style.opacity = "1";
+            localStorage.setItem("cirno-there", "true");
+            localStorage.setItem('gPoints', points.toString());
+            goonPoints.textContent = "Gooning Points: " + points;
+        }
+
+        else {
+            fundAlert.style.display = "flex";
+        }
+    })
+
+    if (localStorage.getItem("cirno-there", "true")) {
+        cirnoSpin.style.opacity = "1";
+    }
+
+
+    fundConfirm.addEventListener('click', function(){
+        fundAlert.style.display = 'none';
+    })
 
 
 
