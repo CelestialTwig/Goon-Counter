@@ -11,7 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const cirnoShop = document.querySelector(".cirnoShop");
     const cirnoSpin = document.querySelector(".cirnoSpin");
     const fundAlert = document.querySelector(".noFunds");
+    const alrBoughtAlert = document.querySelector(".alreadyBought");
     const fundConfirm = document.getElementById("fund-confirmation");
+    const alrBoughtConfirmation = document.getElementById("alrBought-confirmation");
+    const multiButton = document.querySelector(".multiButton");
+    let scoreIncrease = 1;
+    let goonMultiplier = localStorage.getItem("goonMultiplier") || 1;
 
 
     if (!localStorage.getItem('gPoints')) {
@@ -21,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     incrementButton.addEventListener("click", () => {
         score = parseInt(localStorage.getItem('score'))
-        score += 1;
+        score += scoreIncrease;
         localStorage.setItem('score', score);
         countLabel.textContent = score;
          if (parseInt(localStorage.getItem('score')) >= 100 && localStorage.getItem('master-baiter-badge') !== 'true') {
@@ -44,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         if (score !== 0 && score % 31 === 0) {
-            currentPoints += 1;
+            currentPoints += 1 * parseInt(goonMultiplier);
             localStorage.setItem("gPoints", currentPoints.toString());
         }
 
@@ -124,6 +129,32 @@ document.addEventListener("DOMContentLoaded", () => {
         fundAlert.style.display = 'none';
     })
 
+
+    multiButton.addEventListener("click", () => {
+        let points = parseInt(goonPoints.textContent.replace(/\D/g, ""));
+        let multiplierUsed = localStorage.getItem("multiplier-used") === "true";
+        if (points >= 5 && !multiplierUsed) {
+            points -= 5;
+            localStorage.setItem("goonMultiplier", "2")
+            localStorage.setItem("multiplier-used", "true");
+            localStorage.setItem('gPoints', points.toString());
+            goonPoints.textContent = "Gooning Points: " + points;
+        }
+
+        else if (multiplierUsed && points >= 5) {
+            alrBoughtAlert.style.display = "flex";
+        }
+
+        else {
+            fundAlert.style.display = "flex";
+        }
+
+        
+    })
+
+    alrBoughtConfirmation.addEventListener('click', function(){
+        alrBoughtAlert.style.display = 'none';
+    })
 
 
 });
