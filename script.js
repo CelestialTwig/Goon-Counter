@@ -17,10 +17,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const multiButton = document.querySelector(".multiButton");
     let scoreIncrease = 1;
     let goonMultiplier = localStorage.getItem("goonMultiplier") || 1;
+    let multiplierUsed = localStorage.getItem("multiplier-used") === "true";
+
+
+    if (multiplierUsed) {
+        goonMultiplier = 2;
+    }
 
     if (!localStorage.getItem('gPoints')) {
         localStorage.setItem('gPoints', '0');
     }
+
+
 
 
     incrementButton.addEventListener("click", () => {
@@ -132,7 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     multiButton.addEventListener("click", () => {
         let points = parseInt(goonPoints.textContent.replace(/\D/g, ""));
-        let multiplierUsed = localStorage.getItem("multiplier-used") === "true";
         if (points >= 5 && !multiplierUsed) {
             points -= 5;
             goonMultiplier = 2;
