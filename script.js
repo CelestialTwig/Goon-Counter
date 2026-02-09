@@ -130,6 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
 
+    
     multiButton.addEventListener("click", () => {
         let points = parseInt(goonPoints.textContent.replace(/\D/g, ""));
         let multiplierUsed = localStorage.getItem("multiplier-used") === "true";
@@ -141,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
             goonPoints.textContent = "Gooning Points: " + points;
         }
 
-        else if (multiplierUsed && points >= 5) {
+        else if (multiplierUsed) {
             alrBoughtAlert.style.display = "flex";
         }
 
