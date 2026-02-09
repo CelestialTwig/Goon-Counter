@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let scoreIncrease = 1;
     let goonMultiplier = localStorage.getItem("goonMultiplier") || 1;
 
-
     if (!localStorage.getItem('gPoints')) {
         localStorage.setItem('gPoints', '0');
     }
@@ -136,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let multiplierUsed = localStorage.getItem("multiplier-used") === "true";
         if (points >= 5 && !multiplierUsed) {
             points -= 5;
-            localStorage.setItem("goonMultiplier", "2")
+            goonMultiplier = 2;
             localStorage.setItem("multiplier-used", "true");
             localStorage.setItem('gPoints', points.toString());
             goonPoints.textContent = "Gooning Points: " + points;
@@ -156,7 +155,6 @@ document.addEventListener("DOMContentLoaded", () => {
     alrBoughtConfirmation.addEventListener('click', function(){
         alrBoughtAlert.style.display = 'none';
     })
-
 
 });
 

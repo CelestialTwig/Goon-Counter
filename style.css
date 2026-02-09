@@ -1,23 +1,31 @@
-.gButton {
-    background-image: url(goonjack.jpg);
-    background-position: center;
+/* --- GLOBAL & BODY STYLES --- */
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    background-image: url("GOONER\ GIRL.webp");
     background-repeat: no-repeat;
     background-size: cover;
-    border: 2px solid black;
-    text-align: center;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 50%;
-    height: 400px;
-    width: 400px; 
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* --- LAYOUT CONTAINERS --- */
+.taskbar {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
-    flex-direction: column;
-    margin-bottom: 30px;
+    gap: 20px;
+    margin-bottom: 20px;
+    order: -1; /* Keeps taskbar at the top */
 }
 
 .goonButton {
@@ -25,26 +33,39 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    flex-grow: 1;
     width: 100%;
-    line-height: 1; 
-    margin-top: 200px;
+    line-height: 1;
+    padding: 20px 0;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    margin: 0%;
-    background-image: url(GOONER\ GIRL.webp);
+/* --- MAIN CLICK BUTTON --- */
+.gButton {
+    background-image: url("goonjack.jpg");
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
-}
-
-html {
-    height: 100%;
+    border: 2px solid black;
+    text-align: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    flex-direction: column;
+    margin-bottom: 30px;
+    overflow: hidden;
+    box-shadow: 0 0 0 2px black;
+    outline: none;
+    /* Mobile Optimizations */
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .gButton:hover {
@@ -59,194 +80,26 @@ html {
 .gButton a {
     color: purple;
     display: flex;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px 0;
     font-weight: 1000;
 }
 
-.sidebarButton {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    line-height: 1;
-}
-
-.sButton {
-    color: purple;
-    display: flex;
-    margin-top: 10px;
-    margin-left: 10px;
-    font-weight: 1000;
-}
-
-
+/* --- COUNTER & TEXT --- */
 .counter {
     display: flex;
-    height: 200px;
+    height: auto;
     width: 100%;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color:white;
+    color: white;
 }
 
 .counter label {
     color: black;
-    height: 50%;
     font-size: 60px;
     font-weight: 900;
     margin-top: 20px;
-}
-
-.times .label-text {
-    height: auto;
-    font-size: 60px;
-    font-weight: 900;
-    margin: 0;
-    background: linear-gradient(to right, rgb(72, 137, 250), rgb(0, 217, 217));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    color: azure;
-    list-style: none;
-    height: 100%;
-    width: 0;
-    z-index: 1;
-    background: #333;
-    overflow-x: hidden;
-    padding-top: 10px;
-    transition: 0.6s ease;
-    box-shadow: 0 0 10px;
-    font-family: Arial, sans-serif;
-}
-
-
-.sidebar ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar h3 {
-    display: flex;
-    justify-content: center;
-}
-
-.badge-icon {
-    height: auto;
-    width: 100px;
-    display: block;
-    margin: 5px auto 0;
-}
-
-.master-baiter-badge {
-    text-align: center;
-    margin-bottom: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 2px solid black;
-    padding: 10px;
-    position: relative;
-}
-
-.master-baiter-badge::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #222;
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 4px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 10;
-}
-
-.master-baiter-badge:hover::after {
-    opacity: 1;
-}
-
-.custom-alert {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
-}
-
-.alert-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
-    text-align: center;
-    box-shadow: 0 4px 8px;
-}
-
-.alert-content h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.alert-content p{
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: #666;
-}
-
-.alert-content button{
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.alert-content button:hover{
-    background-color:#218838;
-
-}
-
-
-.sButton {
-    border-radius: 8px;
-}
-
-.sButton:hover{
-    background-color: #666;
-    transition: 0.2s ease;
-}
-
-.sButton:active{
-    background-color: white;
-}
-
-.counter .goonPoints {
-    background: linear-gradient(to right, red, yellow);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-top: 5vh;
 }
 
 .times {
@@ -258,60 +111,51 @@ html {
 }
 
 .times .actualCounter {
-    height: auto;
     font-size: 60px;
     font-weight: 900;
-    margin: 0;
     background: linear-gradient(to right, rgb(197, 145, 154), rgb(186, 37, 186));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+.times .label-text {
+    font-size: 60px;
+    font-weight: 900;
+    background: linear-gradient(to right, rgb(72, 137, 250), rgb(0, 217, 217));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-.shButton {
+.counter .goonPoints {
+    background: linear-gradient(to right, red, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 5vh;
+}
+
+/* --- NAVIGATION BUTTONS (Shop/Badges) --- */
+.sButton, .shButton {
+    color: purple;
+    display: flex;
+    margin: 10px 0 0 10px;
+    font-weight: 1000;
     border-radius: 8px;
-}
-
-.shButton:hover{
-    background-color: #666;
     transition: 0.2s ease;
+    cursor: pointer;
 }
 
-.shButton:active{
+.sButton:hover, .shButton:hover {
+    background-color: #666;
+}
+
+.sButton:active, .shButton:active {
     background-color: white;
 }
 
-.shopButton {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    line-height: 1;
-}
-
-.shButton {
-    color: purple;
-    display: flex;
-    margin-top: 10px;
-    margin-left: 10px;
-    font-weight: 1000;
-}
-
-.taskbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5vw;
-    margin-bottom: 1vh;
-}
-
-.shopbar {
+/* --- SIDEBARS (Badges & Shop) --- */
+.sidebar, .shopbar {
     position: fixed;
     top: 0;
-    right: 0;
-    color: azure;
-    list-style: none;
     height: 100%;
     width: 0;
     z-index: 1;
@@ -321,29 +165,117 @@ html {
     transition: 0.6s ease;
     box-shadow: 0 0 10px;
     font-family: Arial, sans-serif;
-    display: flex;
-    gap: 2vw;
-    flex-direction: column;
+    color: azure;
 }
 
-.shopbar ul {
+.sidebar { left: 0; }
+.shopbar { 
+    right: 0; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 2vw; 
+}
+
+.sidebar h3, .shopbar h3 {
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar ul, .shopbar ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    font-family: Arial, sans-serif;
     padding: 0;
     margin: 0;
 }
 
-.shopbar h3 {
-    display: flex;
-    justify-content: center;
-}
-
-.shopbar img {
+/* --- BADGES & SHOP ITEMS --- */
+.master-baiter-badge, .cirnoButton, .multiButton {
+    position: relative;
     border: 2px solid black;
+    cursor: pointer;
 }
 
+.master-baiter-badge {
+    text-align: center;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.badge-icon {
+    width: 100px;
+    margin: 5px auto 0;
+}
+
+.cirnoButton, .multiButton {
+    width: 120px;
+    height: 120px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 8px;
+}
+
+.cirnoButton { background-image: url('touhou-cirno.gif'); }
+.multiButton { background-image: url('2xMultiplier.jpg'); }
+
+/* Tooltips */
+.master-baiter-badge::after, .cirnoButton::after, .multiButton::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #222;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.master-baiter-badge:hover::after, .cirnoButton:hover::after, .multiButton:hover::after {
+    opacity: 1;
+}
+
+/* --- MODALS & ALERTS --- */
+.custom-alert, .noFunds, .alreadyBought {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+.alert-content, .fund-content, .alrBought-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px;
+}
+
+.alert-content button, .fund-content button, .alrBought-content button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* --- EXTRAS --- */
 .cirnoSpin {
     position: fixed;
     left: 10vw;
@@ -351,171 +283,14 @@ html {
     opacity: 0;
 }
 
-.cirnoButton {
-    width: 120px;
-    height: 120px;
-    background-image: url('touhou-cirno.gif');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    border: 2px solid black;
-    border-radius: 8px;
-    cursor: pointer;
-    position: relative;
-}
-
-
-.cirnoShop {
-    background: transparent;
-}
-
-
-.cirnoButton::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #222;
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 4px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 10;
-}
-
-.cirnoButton:hover::after {
-    opacity: 1;
-}
-
-
-.noFunds {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
-}
-
-.fund-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
-    text-align: center;
-    box-shadow: 0 4px 8px;
-}
-
-.fund-content h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.fund-content p{
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: #666;
-}
-
-.fund-content button{
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.fund-content button:hover{
-    background-color:#218838;
-
-}
-
-.alreadyBought {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
-}
-
-.alrBought-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
-    text-align: center;
-    box-shadow: 0 4px 8px;
-}
-
-.alrBought-content h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.alrBought-content p{
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: #666;
-}
-
-.alrBought-content button{
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.alrBought-content button:hover{
-    background-color:#218838;
-
-}
-
-.multiButton {
-    width: 120px;
-    height: 120px;
-    background-image: url('2xMultiplier.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    border: 2px solid black;
-    border-radius: 8px;
-    cursor: pointer;
-    position: relative;
-}
-
-.multiButton::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #222;
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 4px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 10;
-}
-
-.multiButton:hover::after {
-    opacity: 1;
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 500px) {
+    .gButton {
+        height: 250px;
+        width: 250px;
+        font-size: 24px;
+    }
+    .counter label {
+        font-size: 40px;
+    }
 }
