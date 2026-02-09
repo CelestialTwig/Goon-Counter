@@ -24,8 +24,8 @@ body {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    margin-bottom: 20px;
-    order: -1; /* Keeps taskbar at the top */
+    order: -1; 
+    margin-top: 20px;
 }
 
 .goonButton {
@@ -134,21 +134,24 @@ body {
 }
 
 /* --- NAVIGATION BUTTONS (Shop/Badges) --- */
-.sButton, .shButton {
+.sButton, .shButton, .rstButton {
     color: purple;
     display: flex;
-    margin: 10px 0 0 10px;
+    margin: 0;
     font-weight: 1000;
     border-radius: 8px;
     transition: 0.2s ease;
     cursor: pointer;
+    padding: 5px 15px;
+    overflow: hidden;
+    border-style: solid;
 }
 
-.sButton:hover, .shButton:hover {
+.sButton:hover, .shButton:hover, .rstButton:hover {
     background-color: #666;
 }
 
-.sButton:active, .shButton:active {
+.sButton:active, .shButton:active, .rstButton:active {
     background-color: white;
 }
 

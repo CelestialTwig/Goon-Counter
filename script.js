@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const confirmBtn = document.getElementById('confirmation')
     const sidebarButton = document.querySelector('.sidebarButton');
     const goonPoints = document.querySelector(".goonPoints");
-    let score = parseInt(localStorage.getItem("score")) || 0;
     const shopButton = document.querySelector(".shButton");
     const cirnoShop = document.querySelector(".cirnoShop");
     const cirnoSpin = document.querySelector(".cirnoSpin");
@@ -15,10 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const fundConfirm = document.getElementById("fund-confirmation");
     const alrBoughtConfirmation = document.getElementById("alrBought-confirmation");
     const multiButton = document.querySelector(".multiButton");
+    const resetButton = document.querySelector(".rstButton");
     let scoreIncrease = 1;
     let goonMultiplier = localStorage.getItem("goonMultiplier") || 1;
     let multiplierUsed = localStorage.getItem("multiplier-used") === "true";
-
+    let score = parseInt(localStorage.getItem("score")) || 0;
+    
 
     if (multiplierUsed) {
         goonMultiplier = 2;
@@ -146,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("multiplier-used", "true");
             localStorage.setItem('gPoints', points.toString());
             goonPoints.textContent = "Gooning Points: " + points;
+            multiplierUsed = true;
         }
 
         else if (multiplierUsed) {
@@ -163,5 +165,9 @@ document.addEventListener("DOMContentLoaded", () => {
         alrBoughtAlert.style.display = 'none';
     })
 
+    resetButton.addEventListener('click', function(){
+        localStorage.clear();
+        location.reload();
+    })
 });
 
