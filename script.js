@@ -14,10 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const fundConfirm = document.getElementById("fund-confirmation");
     const alrBoughtConfirmation = document.getElementById("alrBought-confirmation");
     const multiButton = document.querySelector(".multiButton");
+    const autoButton = document.querySelector(".autoButton");
     const resetButton = document.querySelector(".rstButton");
     let scoreIncrease = 1;
     let goonMultiplier = localStorage.getItem("goonMultiplier") || 1;
     let multiplierUsed = localStorage.getItem("multiplier-used") === "true";
+    let automaterUsed = localStorage.getItem("automater-used") === "true";
     let score = parseInt(localStorage.getItem("score")) || 0;
     
 
@@ -29,10 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem('gPoints', '0');
     }
 
-
-
-
-    incrementButton.addEventListener("click", () => {
+    function goon(){
         score = parseInt(localStorage.getItem('score'))
         score += scoreIncrease;
         localStorage.setItem('score', score);
@@ -62,8 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         goonPoints.textContent = "Gooning Points: " + localStorage.getItem("gPoints");
+    }
 
-    });
+
+    incrementButton.addEventListener("click", goon)
 
     sidebarButton.addEventListener('click', () => {
         const sidebar = document.querySelector('.sidebar');
@@ -159,6 +160,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         
+    })
+
+    autoButton.addEventListener("click", () => {
+        let points = parseInt(goonPoints.textContent.replace(/\D/g, ""));
+        if (points >= 5 && !automaterUsed) {
+            points -= 5;
+            setInterval(() => goon(), 500);
+            localStorage.setItem('gPoints', points.toString());
+            goonPoints.textContent = "Gooning Points: " + points;
+            automaterUsed= true;
+        }
+
+        else if (automaterUsed) {
+            alrBoughtAlert.style.display = "flex";
+        }
+
+        else {
+            fundAlert.style.display = "flex";
+        }
     })
 
     alrBoughtConfirmation.addEventListener('click', function(){

@@ -193,7 +193,7 @@ body {
 }
 
 /* --- BADGES & SHOP ITEMS --- */
-.master-baiter-badge, .cirnoButton, .multiButton {
+.master-baiter-badge, .cirnoButton, .multiButton, .autoButton {
     position: relative;
     border: 2px solid black;
     cursor: pointer;
@@ -212,20 +212,44 @@ body {
     margin: 5px auto 0;
 }
 
-.cirnoButton, .multiButton {
+.cirnoButton, .multiButton, .autoButton {
     width: 120px;
     height: 120px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cirnoText, .mltplrText, .autoText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    padding: 6px 10px;
+    font-weight: 900;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+.cirnoText2, .mltplrText2, .autoText2 {
+    color: #000000;
+    padding: 6px 10px;
+    font-weight: 900;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+    font-size: 25px;
 }
 
 .cirnoButton { background-image: url('touhou-cirno.gif'); }
 .multiButton { background-image: url('2xMultiplier.jpg'); }
+.autoButton {background-image: url('Inserter.webp');}
 
 /* Tooltips */
-.master-baiter-badge::after, .cirnoButton::after, .multiButton::after {
+.master-baiter-badge::after, .cirnoButton::after, .multiButton::after, .autoButton::after {
     content: attr(data-tooltip);
     position: absolute;
     bottom: 100%;
@@ -242,7 +266,7 @@ body {
     z-index: 10;
 }
 
-.master-baiter-badge:hover::after, .cirnoButton:hover::after, .multiButton:hover::after {
+.master-baiter-badge:hover::after, .cirnoButton:hover::after, .multiButton:hover::after, .autoButton:hover::after {
     opacity: 1;
 }
 
