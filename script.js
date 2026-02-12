@@ -17,13 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const autoButton = document.querySelector(".autoButton");
     const resetButton = document.querySelector(".rstButton");
     const tooFast = document.querySelector(".tooFast")
+    const tooFastContent = document.querySelector(".tooFast-content")
     const tooFastConfirmation = document.getElementById("tooFast-confirmation");
     let scoreIncrease = 1;
     let goonMultiplier = localStorage.getItem("goonMultiplier") || 1;
     let multiplierUsed = localStorage.getItem("multiplier-used") === "true";
     let automaterUsed = localStorage.getItem("automater-used") === "true";
     let score = parseInt(localStorage.getItem("score")) || 0;
-    
+    let warningPositionLeft = 0;
+    let warningPositionTop = 0;
 
     if (multiplierUsed) {
         goonMultiplier = 2;
@@ -35,13 +37,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let lastClickTime = 0;
 
+    function positionRandomizer() {
+
+        const maxVW = 70;
+        const maxVH = 70;
+
+        warningPositionLeft = Math.floor(Math.random() * maxVW);
+        warningPositionTop = Math.floor(Math.random() * maxVH);
+        tooFastContent.style.top = warningPositionTop + 'vh';
+        tooFastContent.style.left = warningPositionLeft + 'vw';
+    }
+
     function goon(isAuto = false){
-        const MIN_INTERVAL = 50; 
+        const MIN_INTERVAL = 20; 
         const now = Date.now();
 
         if (!isAuto) {
             if (now - lastClickTime < MIN_INTERVAL) {
-                tooFast.style.display = "flex";
+                positionRandomizer();
+                tooFast.style.display = "block";
                 incrementButton.blur();
                 return; 
             }
