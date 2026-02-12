@@ -33,14 +33,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let lastClickTime = 0;
 
-    function goon(){
-        const MIN_INTERVAL = 50; // Milliseconds (roughly 20 clicks per second max)
+    function goon(isAuto = false){
+        const MIN_INTERVAL = 50; 
         const now = Date.now();
+
+    // 3. Only run the anti-cheat if it's NOT an auto-click
+    if (!isAuto) {
         if (now - lastClickTime < MIN_INTERVAL) {
-            console.warn("Autoclicker detected or clicking too fast!");
-            return; // Exit the function early
+            console.warn("Manual click too fast!");
+            return; 
         }
-    lastClickTime = now;
+        lastClickTime = now;
+    }
 
 
         score = parseInt(localStorage.getItem('score'))
@@ -194,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let points = parseInt(goonPoints.textContent.replace(/\D/g, ""));
         if (points >= 5 && !automaterUsed) {
             points -= 5;
-            setInterval(() => goon(), 500);
+            setInterval(() => goon(true), 500);
             localStorage.setItem('gPoints', points.toString());
             goonPoints.textContent = "Gooning Points: " + points;
             automaterUsed= true;
@@ -217,5 +221,9 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.clear();
         location.reload();
     })
+
+    if (automaterUsed) {
+    setInterval(() => goon(true), 500);
+    }
 });
 
