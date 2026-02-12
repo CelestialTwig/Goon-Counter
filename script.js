@@ -31,7 +31,18 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem('gPoints', '0');
     }
 
+    let lastClickTime = 0;
+
     function goon(){
+        const MIN_INTERVAL = 50; // Milliseconds (roughly 20 clicks per second max)
+        const now = Date.now();
+        if (now - lastClickTime < MIN_INTERVAL) {
+            console.warn("Autoclicker detected or clicking too fast!");
+            return; // Exit the function early
+        }
+    lastClickTime = now;
+
+
         score = parseInt(localStorage.getItem('score'))
         score += scoreIncrease;
         localStorage.setItem('score', score);
@@ -51,6 +62,23 @@ document.addEventListener("DOMContentLoaded", () => {
             customAlert.style.display = "flex";
             localStorage.setItem('master-baiter-badge', "true");
         }
+
+         if (parseInt(localStorage.getItem('score')) >= 31 && localStorage.getItem('rookie-baiter-badge') !== 'true') {
+            let rookieBadge = document.createElement('li');
+            rookieBadge.classList.add("rookie-baiter-badge");
+            rookieBadge.textContent = "ROOKIE BAITER";
+            rookieBadge.setAttribute("data-tooltip", "Obtainment Method: Goon 31 times.");
+            badgesSideBar.appendChild(rookieBadge); 
+            let img = document.createElement("img");
+            img.src = "patrick-get-real.png";
+            img.alt = "Rookie-Baiter-Badge";
+            img.classList.add("badge-icon");
+            rookieBadge.appendChild(img);
+            customAlert.style.display = "flex";
+            localStorage.setItem('rookie-baiter-badge', "true");
+        }
+
+        
 
         let currentPoints = parseInt(localStorage.getItem("gPoints")) || 0;
 

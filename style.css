@@ -169,13 +169,13 @@ body {
     box-shadow: 0 0 10px;
     font-family: Arial, sans-serif;
     color: azure;
+    flex-direction: column;
 }
 
 .sidebar { left: 0; }
 .shopbar { 
     right: 0; 
     display: flex; 
-    flex-direction: column; 
     gap: 2vw; 
 }
 
@@ -192,24 +192,46 @@ body {
     margin: 0;
 }
 
+.badgeBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /* --- BADGES & SHOP ITEMS --- */
-.master-baiter-badge, .cirnoButton, .multiButton, .autoButton {
+.master-baiter-badge, .rookie-baiter-badge, .cirnoButton, .multiButton, .autoButton {
     position: relative;
     border: 2px solid black;
     cursor: pointer;
 }
 
-.master-baiter-badge {
+.master-baiter-badge, .rookie-baiter-badge {
+    position: relative;
+    border: 2px solid black;
+    cursor: pointer;
     text-align: center;
     margin-bottom: 12px;
-    display: flex;
+    
+    /* The Fix: inline-flex prevents stretching */
+    display: inline-flex; 
     flex-direction: column;
-    padding: 10px;
+    align-items: center;
+    padding: 8px;
+    
+    /* Set a square-ish constraint */
+    width: 120px; 
+    aspect-ratio: 1 / 1; 
+    justify-content: center;
+    font-size: 12px; /* Smaller text to fit the square */
 }
 
 .badge-icon {
-    width: 100px;
-    margin: 5px auto 0;
+    /* Scale image to fit inside the square */
+    width: 100%; 
+    max-width: 80px; 
+    height: auto;
+    margin-top: 5px;
 }
 
 .cirnoButton, .multiButton, .autoButton {
@@ -249,7 +271,7 @@ body {
 .autoButton {background-image: url('Inserter.webp');}
 
 /* Tooltips */
-.master-baiter-badge::after, .cirnoButton::after, .multiButton::after, .autoButton::after {
+.master-baiter-badge::after, .cirnoButton::after, .multiButton::after, .autoButton::after, .rookie-baiter-badge::after {
     content: attr(data-tooltip);
     position: absolute;
     bottom: 100%;
@@ -266,7 +288,7 @@ body {
     z-index: 10;
 }
 
-.master-baiter-badge:hover::after, .cirnoButton:hover::after, .multiButton:hover::after, .autoButton:hover::after {
+.master-baiter-badge:hover::after, .cirnoButton:hover::after, .multiButton:hover::after, .autoButton:hover::after, .rookie-baiter-badge:hover::after {
     opacity: 1;
 }
 
