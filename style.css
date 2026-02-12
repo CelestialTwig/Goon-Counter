@@ -293,7 +293,7 @@ body {
 }
 
 /* --- MODALS & ALERTS --- */
-.custom-alert, .noFunds, .alreadyBought {
+.custom-alert, .noFunds, .alreadyBought, .tooFast {
     display: none;
     position: fixed;
     top: 0;
@@ -306,7 +306,7 @@ body {
     z-index: 20;
 }
 
-.alert-content, .fund-content, .alrBought-content {
+.alert-content, .fund-content, .alrBought-content, .tooFast-content {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
@@ -315,7 +315,7 @@ body {
     box-shadow: 0 4px 8px;
 }
 
-.alert-content button, .fund-content button, .alrBought-content button {
+.alert-content button, .fund-content button, .alrBought-content button, .tooFast-content button{
     padding: 10px 20px;
     background-color: #28a745;
     color: white;

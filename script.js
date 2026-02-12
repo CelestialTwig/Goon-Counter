@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const multiButton = document.querySelector(".multiButton");
     const autoButton = document.querySelector(".autoButton");
     const resetButton = document.querySelector(".rstButton");
+    const tooFast = document.querySelector(".tooFast")
+    const tooFastConfirmation = document.getElementById("tooFast-confirmation");
     let scoreIncrease = 1;
     let goonMultiplier = localStorage.getItem("goonMultiplier") || 1;
     let multiplierUsed = localStorage.getItem("multiplier-used") === "true";
@@ -37,12 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const MIN_INTERVAL = 50; 
         const now = Date.now();
 
-    // 3. Only run the anti-cheat if it's NOT an auto-click
-    if (!isAuto) {
-        if (now - lastClickTime < MIN_INTERVAL) {
-            console.warn("Manual click too fast!");
-            return; 
-        }
+        if (!isAuto) {
+            if (now - lastClickTime < MIN_INTERVAL) {
+                tooFast.style.display = "flex";
+                incrementButton.blur();
+                return; 
+            }
         lastClickTime = now;
     }
 
@@ -96,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    incrementButton.addEventListener("click", goon)
+    incrementButton.addEventListener("click", () => goon(false));
 
     sidebarButton.addEventListener('click', () => {
         const sidebar = document.querySelector('.sidebar');
@@ -217,9 +219,15 @@ document.addEventListener("DOMContentLoaded", () => {
         alrBoughtAlert.style.display = 'none';
     })
 
+
     resetButton.addEventListener('click', function(){
         localStorage.clear();
         location.reload();
+    })
+
+
+    tooFastConfirmation.addEventListener('click', function(){
+        tooFast.style.display = 'none';
     })
 
     if (automaterUsed) {
